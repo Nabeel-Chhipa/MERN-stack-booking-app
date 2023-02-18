@@ -7,6 +7,7 @@ dotenv.config();
 const app = express();
 
 // middlewares
+app.use(express.json())
 app.use('/user', userRouter)
 
 mongoose.connect(`mongodb+srv://admin:${process.env.MONGODB_PASSWORD}@cluster0.hnj2ho3.mongodb.net/?retryWrites=true&w=majority`)
