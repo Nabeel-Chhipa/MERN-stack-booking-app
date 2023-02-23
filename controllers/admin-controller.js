@@ -13,11 +13,9 @@ export const addAdmin = async (req, res, next) => {
     } catch (error) {
         return console.log(error)
     }
-
     if(existingUser) {
         return res.status(400).json({ message: 'Admin already exists' })
     }
-
     let admin
     const hashedPassword = bcrypt.hashSync(password)
     try {
@@ -26,7 +24,6 @@ export const addAdmin = async (req, res, next) => {
     } catch (error) {
         return console.log(error)
     }
-
     if(!admin) {
         return res.status(500).json({ message: 'Unable to find admin' })
     }
@@ -55,4 +52,17 @@ export const adminLogin = async (req, res, next) => {
         expiresIn: '7d'
     })
     return res.status(200).json({message:'Authentication completed', token, id: existingUser._id})
+}
+
+export const getAdmins = async (req, res, next) => {
+    let admins
+    try {
+        admins = await Admin.find()
+    } catch (error) {
+        console.log(error)
+    }
+    if(!admins) {
+        return res.status(500).json({message: 'Internal Server Error'})
+    }
+    return res.status(200).json({admins})
 }

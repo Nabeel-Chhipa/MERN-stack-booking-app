@@ -29,7 +29,8 @@ const movieSchema = new Schema({
         type: String
     }],
     admin: {
-        type: String,
+        type: mongoose.Types.ObjectId,
+        ref: 'Admin',
         required: true
     }
 })
