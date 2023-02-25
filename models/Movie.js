@@ -26,7 +26,8 @@ const movieSchema = new Schema({
         type: Boolean
     },
     booking: [{
-        type: String
+        type: mongoose.Types.ObjectId,
+        ref: 'Bookings'
     }],
     admin: {
         type: mongoose.Types.ObjectId,
