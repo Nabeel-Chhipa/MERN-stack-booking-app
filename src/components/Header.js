@@ -4,6 +4,7 @@ import MovieIcon from "@mui/icons-material/Movie";
 import { Box } from "@mui/system";
 import Autocomplete from "@mui/material/Autocomplete";
 import { getAllMovies } from "../api-helpers/api-helpers";
+import {Link} from 'react-router-dom'
 
 const Header = () => {
   const [value, setValue] = useState(0);
@@ -16,7 +17,7 @@ const Header = () => {
   }, []);
 
   return (
-    <AppBar sx={{ bgcolor: "#999" }}>
+    <AppBar position='sticky' sx={{ bgcolor: "#999" }}>
       <Toolbar>
         <Box width={"20%"}>
           <MovieIcon />
@@ -42,9 +43,9 @@ const Header = () => {
             indicatorColor={"secondary"}
             onChange={(e, eValue) => setValue(eValue)}
           >
-            <Tab label="Movies" />
-            <Tab label="Admin" />
-            <Tab label="Auth" />
+            <Tab LinkComponent={Link} to='/movies' label="Movies" />
+            <Tab LinkComponent={Link} to='/admin' label="Admin" />
+            <Tab LinkComponent={Link} to='/auth' label="Auth" />
           </Tabs>
         </Box>
       </Toolbar>
