@@ -11,7 +11,7 @@ function App() {
       <Header />
       <section>
         <Routes>
-          <Route path='/' element={HomePage}></Route>
+          <Route path='/' element={<HomePage />}></Route>
           <Route path='/admin' element={<Admin />}></Route>
           <Route path='/movies' element={<Movies />}></Route>
           <Route path='/auth' element={<Auth />}></Route>
