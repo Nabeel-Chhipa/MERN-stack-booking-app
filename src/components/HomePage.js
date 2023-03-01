@@ -1,5 +1,4 @@
 import { Box, Typography, Button } from "@mui/material";
-import React from "react";
 import MovieItem from "./Movies/MovieItem";
 import { Link } from "react-router-dom";
 import { useState } from "react";
@@ -38,7 +37,7 @@ const HomePage = () => {
       >
         {movies &&
           movies
-            ?.slice(2)
+            ?.slice(0, 3)
             .map((movie, index) => (
               <MovieItem
                 id={movie.id}
