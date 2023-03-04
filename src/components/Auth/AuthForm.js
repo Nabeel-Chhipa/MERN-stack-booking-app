@@ -14,7 +14,7 @@ const labelStyle = {
   mt: 1,
   mb: 1,
 };
-const AuthForm = () => {
+const AuthForm = ({onSubmit, isAdmin}) => {
 
     const [isSignup, setIsSignup] = useState(false)
     const [inputs, setInputs] = useState({
@@ -32,7 +32,7 @@ const AuthForm = () => {
 
     const handleSubmit = (e) => {
         e.preventDefault()
-        console.log(inputs)
+        onSubmit({inputs, signup: isAdmin ? false : isSignup})
     }
 
   return (
@@ -56,7 +56,7 @@ const AuthForm = () => {
           padding={3}
         >
             {
-                isSignup && 
+                !isAdmin && isSignup && 
                 <>
                     <FormLabel sx={labelStyle}>Name</FormLabel>
                     <TextField
@@ -99,6 +99,8 @@ const AuthForm = () => {
           >
             { isSignup ? 'Signup' : 'Login' }
           </Button>
+          {
+            !isAdmin &&
           <Button
             fullWidth
             sx={{
@@ -114,6 +116,7 @@ const AuthForm = () => {
           >
             Switch To {isSignup ? 'Login' : 'Signup'}
           </Button>
+          }
         </Box>
       </form>
     </Dialog>
