@@ -3,6 +3,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { Route, Routes } from "react-router-dom";
 import Admin from "./components/Admin/Admin";
 import Auth from "./components/Auth/Auth";
+import Booking from "./components/Bookings/Booking";
 import Header from "./components/Header";
 import HomePage from "./components/HomePage";
 import Movies from "./components/Movies/Movies";
@@ -33,6 +34,7 @@ function App() {
           <Route path='/admin' element={<Admin />}></Route>
           <Route path='/movies' element={<Movies />}></Route>
           <Route path='/auth' element={<Auth />}></Route>
+          <Route path="/booking/:id" element={<Booking />}></Route>
         </Routes>
       </section>
     </div>

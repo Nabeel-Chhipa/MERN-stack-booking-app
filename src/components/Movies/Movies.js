@@ -28,7 +28,7 @@ const Movies = () => {
         {movies &&
           movies?.map((movie, index) => (
               <MovieItem
-                id={movie.id}
+                id={movie._id}
                 title={movie.title}
                 releaseDate={movie.releaseDate}
                 posterUrl={movie.posterUrl}
